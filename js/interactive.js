@@ -11,7 +11,7 @@ function generator() {
 }
 
 document.getElementById('generator').addEventListener('click', function () {
-
+    document.getElementById('actionLeft').innerText = 3;
     let number = generator();
     document.getElementById('numberShow').value = number;
 
@@ -42,6 +42,15 @@ document.getElementById('calculator').addEventListener('click', function (event)
                 // console.log('incorrect');
                 notifyS.style.display = 'none';
                 notifyF.style.display = 'block';
+                let cont = parseInt(document.getElementById('actionLeft').innerText);
+                cont--;
+                if (cont == 0) {
+                    alert("You have 0 attempt ,please generate the number again");
+                    location.reload();
+                } else {
+
+                    document.getElementById('actionLeft').innerText = cont;
+                }
 
             }
         }
